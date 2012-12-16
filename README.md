@@ -52,8 +52,8 @@ This tool allow easy access to the Android Action Bar Icons.
 
 You can search for icon names and chose a Holo theme (either by selecting
 in the UI or by pressing Alt + D (Holo Dark) or Alt + L (Holo Light)).
-If you click on an icon in the list, it will be placed in a new layer in
-your currently active document.
+If you click on an icon in the list (or press Enter for the first item in the list), 
+it will be placed in a new layer in your currently active document.
 
 All Icons are mdpi resolution, since also the Android sources are in mdpi 
 resolution.
@@ -61,3 +61,19 @@ resolution.
 You can use this tool also for additional icons. Just place them  (must be png files)
 into `AndroidTools/Icons/holo_dark` or `AndroidTools/Icons/holo_light` (see
 Installation above for the location of the `AndroidTools` folder).
+
+
+Android Elements
+----------------
+
+This tool allow easier access to different Android elements.
+
+You works nearly the same, as the Android Icons tool does. Some elements might have
+different states, orientation or similiar (indicated by an arrow behind the name). 
+If you click on these (or press Enter, for the first item in the list), you will be shown
+all variations of this element. Select one and it gets inserted into your current document.
+
+You can use this tool also for additional elements. Just place them into `AndroidTools/Elements/holo_dark`,
+`AndroidTools/Elements/holo_light` or `AndroidTools/Elements/holo` (for elements, that are the same in Dark
+and Light theme). You can either place a file (any format Photoshop can open) directly into that folder, or
+use an arbitrary deep folder structure for different states, orientation and such.

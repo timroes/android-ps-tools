@@ -19,8 +19,8 @@ To install the tools do the following steps:
    - Windows: C:\Program Files\Common Files\
    - Mac: /Library/Application Support/
 4. If you now start Photoshop, you can start the tool you want 
-   via File->Scripts-><Tool Name>. You can set shortcuts for the script in
-   the shortcut menu.
+   via File->Scripts->TOOL NAME. 
+5. You can now set shortcuts for the scripts in the shortcut menu.
 
 
 License

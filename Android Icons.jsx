@@ -1,6 +1,15 @@
 // Android Icons 
 // Author: Tim Roes <mail@timroes.de>
 
+/*
+<javascriptresource>
+<name>Android Icons</name>
+<category>Android_PS_Tools</category>
+<about>Insert Android icons into your document.</about>
+<enableinfo>true</enableinfo>
+</javascriptresource>
+*/
+
 #target photoshop
 #include "./~android-funcs.js"
 

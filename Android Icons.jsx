@@ -9,6 +9,7 @@ app.bringToFront();
 var holoLight;
 var holoDark;
 
+var win;
 var search;
 
 var iconList;
@@ -25,13 +26,22 @@ var holoChanged = function(ev) {
 	loadIcons();
 };
 
+function clickList(ev) {
+	loadFileToNewLayer(iconList.selection.file_object);
+	win.close();
+}
+
 /**
  * Build the UI.
  */
 function buildIconUI() {
-	var win = new Window('dialog', 'Android Icons');
+	win = new Window('dialog', 'Android Icons');
 	win.alignChildren = "left";
 	win.addEventListener("keydown", function(ev) {
+		if(ev.keyName == "Enter" && iconList.items.length > 0) {
+			iconList.selection = 0;
+			clickList(null);
+		}
 		search.active = true;
 	});
 
@@ -54,10 +64,7 @@ function buildIconUI() {
 	holoDark.onClick = holoChanged;
 
 	iconList = win.add("listbox", [0, 0, 300, 200]);
-	iconList.onClick = function(ev) {
-		loadFileToNewLayer(iconList.selection.file_object);
-		win.close();
-	};
+	iconList.onClick = clickList;
 
 	holoChanged();
 	win.show();

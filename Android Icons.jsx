@@ -98,12 +98,12 @@ function loadIcons() {
  */
 function updateList() {
 
-	var filter = search.text;
+	var filter = search.text.toLowerCase();
 
 	iconList.removeAll();
 
 	for(var i in allIcons) {
-		if(!filter || allIcons[i].displayName.indexOf(filter) !== -1) {
+		if(!filter || allIcons[i].displayNametoLowerCase().indexOf(filter) !== -1) {
 			var item = iconList.add("item", allIcons[i].displayName.slice(0, -4));
 			item.file_object = allIcons[i];
 			item.image = allIcons[i];

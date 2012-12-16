@@ -2,12 +2,9 @@
 // Author: Tim Roes <mail@timroes.de>
 
 #target photoshop
+#include "./~android-funcs.js"
 
 app.bringToFront();
-
-var ICON_DIR = "Icons/";
-var HOLO_LIGHT = "holo_light/";
-var HOLO_DARK = "holo_dark/";
 
 var holoLight;
 var holoDark;
@@ -77,7 +74,7 @@ function loadIcons() {
 
 	// Find all icons
 	var iconDir = Folder.commonFiles;
-	iconDir.changePath("AndroidTools");
+	iconDir.changePath(DIR);
 	iconDir.changePath(ICON_DIR);
 	iconDir.changePath(getHolo());
 
@@ -104,7 +101,7 @@ function updateList() {
 
 	for(var i in allIcons) {
 		if(!filter || allIcons[i].displayName.toLowerCase().indexOf(filter) !== -1) {
-			var item = iconList.add("item", allIcons[i].displayName.slice(0, -4));
+			var item = iconList.add("item", stripExt(allIcons[i].displayName));
 			item.file_object = allIcons[i];
 			item.image = allIcons[i];
 		}

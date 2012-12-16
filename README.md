@@ -12,7 +12,7 @@ Installation
 To install the tools do the following steps:
 
 1. Download all files (use the ZIP button above).
-2. Move all .jsx files to the Photoshop Script folder
+2. Move all .jsx and .js files to the Photoshop Script folder
    - Windows: C:\Program Files\Adobe\Adobe Photoshop CSx\Presets\Scripts\
    - Mac: /Applications/Photoshop CSx/Presets/Scripts/
 3. Move the `AndroidTool` directory to its place:

@@ -36,7 +36,7 @@ var holoChanged = function(ev) {
 };
 
 function clickList(ev) {
-	loadFileToNewLayer(iconList.selection.file_object);
+	placeFile(iconList.selection.file_object);
 	win.close();
 }
 
@@ -125,34 +125,13 @@ function updateList() {
 
 }
 
-/**
- * Load a file into a new layer.
- */
-function loadFileToNewLayer(file) {
-
-	// Place object as layer
-	// I have no idea, what all that does... But I assume there must be a more elegant way.
-	var desc = new ActionDescriptor();
-	desc.putPath( charIDToTypeID('null'), file );
-	desc.putEnumerated( charIDToTypeID('FTcs'), charIDToTypeID('QCSt'), charIDToTypeID('Qcsa') );
-	var offsetDesc = new ActionDescriptor();
-	offsetDesc.putUnitDouble( charIDToTypeID('Hrzn'), charIDToTypeID('#Pxl'), 0.000000 );
-	offsetDesc.putUnitDouble( charIDToTypeID('Vrtc'), charIDToTypeID('#Pxl'), 0.000000 );
-	desc.putObject( charIDToTypeID('Ofst'), charIDToTypeID('Ofst'), offsetDesc );
-	executeAction( charIDToTypeID('Plc '), desc, DialogModes.NO );
-
-	// The following line is nice. I want the rest above to be looking the same.
-	app.activeDocument.activeLayer.rasterize(RasterizeType.ENTIRELAYER);
-
-}
-
 if(!documents.length) {
 	alert('There are no documents open.', 'No Documents Open', true);
 } else if(parseInt(version, 10) < 10) {
 	alert('This script requires at least Photoshop CS3.', 'Wrong Photoshop Version', true);
 } else {
 	try {
-		buildIconUI();
+		app.activeDocument.suspendHistory('Insert Android icon', 'buildIconUI();');
 	} catch(e) {
 		alert(e, 'Android Icons Error', true);
 	}

@@ -23,6 +23,24 @@ To install the tools do the following steps:
 5. You can now set shortcuts for the scripts in the shortcut menu.
 
 
+How To Update
+-------------
+
+If you want to update, from a previous version, you do the following steps:
+
+1. Remove all previous android script files from the Photoshop script folder (for destination
+   see point 2 under installation). (All the scriptnames contain the word Android.)
+2. Remove the `AndroidTool` directory (destination see point 3 under Installation).
+3. Continue with regular Installation notices.
+
+If you placed some additional icons or elements in the `AndroidTool` folder, make sure
+you have a backup of them to place them after installation again.
+
+It is not absolutely necessary to delete the old version, you could also just copy the new
+version over the old one. But sometimes file names changed or have been moved, so you will
+leave orphaned (or double) files in your folders.
+
+
 License
 -------
 
@@ -32,6 +50,9 @@ an distribute however you wish.
 The Android Icons and Sources belong to Google and were downloaded from
 http://developer.android.com/design/downloads/index.html
 Refere to that page for usage information.
+
+The device frames are from the official Device Art Generator (http://developer.android.com/distribute/promote/device-art.html)
+and the Device Frame Generator (http://android-ui-utils.googlecode.com/hg/asset-studio/dist/device-frames.html).
 
 
 Tested
@@ -77,3 +98,12 @@ You can use this tool also for additional elements. Just place them into `Androi
 `AndroidTools/Elements/holo_light` or `AndroidTools/Elements/holo` (for elements, that are the same in Dark
 and Light theme). You can either place a file (any format Photoshop can open) directly into that folder, or
 use an arbitrary deep folder structure for different states, orientation and such.
+
+
+New Android document
+--------------------
+
+This tool allow easy creation of a new document, containing a device frame, navigation and statusbar.
+
+Just start the tool via the script menu (or set a shortcut) and select the device type and size, the orientation
+and if the tool should add the navigation and/or statusbar to the new document.

@@ -212,32 +212,13 @@ function updateList() {
 
 }
 
-/**
- * Import a file into the current document.
- * This will open the file and duplicate its active layer into the current
- * document. This assumes, that every file will have one root layer set, that
- * is then automaticaly selected by photoshop, when opened.
- */
-function importFile(file) {
-	
-	var curDoc = app.activeDocument;
-
-	var f = open(file);
-	
-	f.activeLayer.duplicate(curDoc, ElementPlacement.PLACEATBEGINNING);
-	f.close(SaveOptions.DONOTSAVECHANGES);
-
-	app.activeDocument = curDoc;
-
-}
-
 if(!documents.length) {
 	alert('There are no documents open.', 'No Documents Open', true);
 } else if(parseInt(version, 10) < 10) {
 	alert('This script requires at least Photoshop CS3.', 'Wrong Photoshop Version', true);
 } else {
 	try {
-		buildElementUI();
+		app.activeDocument.suspendHistory('Insert Android element', 'buildElementUI();');
 	} catch(e) {
 		alert(e, 'Android Elements Error', true);
 	}

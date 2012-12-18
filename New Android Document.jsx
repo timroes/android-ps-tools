@@ -100,10 +100,12 @@ function createDevice(tempFilename) {
 function createStatusbar(barFile, x, y) {
 	if(!statusbar.value) return;
 	insertFile('Statusbar', barFile, x, y);
+	app.activeDocument.activeLayer.allLocked = true;
 }
 
 function createNavbar(navFile, x, y) {
 	insertFile('Navigationbar', navFile, x, y);
+	app.activeDocument.activeLayer.allLocked = true;
 }
 
 function insertFile(pathPart, fileName, x, y) {

@@ -44,8 +44,8 @@ leave orphaned (or double) files in your folders.
 License
 -------
 
-This tools are licensed under MIT license and are thus free to use and modify
-an distribute however you wish.
+This tools are licensed under MIT license and are thus free to use, modify
+and distribute however you wish.
 
 The Android Icons and Sources belong to Google and were downloaded from
 http://developer.android.com/design/downloads/index.html

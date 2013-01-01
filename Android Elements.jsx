@@ -21,6 +21,7 @@ var win;
 var elList;
 var holoDark, holoLight;
 var backbutton;
+var donotclose;
 
 var currentFolder;
 
@@ -34,7 +35,8 @@ function clickList(ev) {
 	search.text = "";
 	if(sel instanceof File) {
 		importFile(sel);
-		win.close();
+		if(!donotclose.value)
+			win.close();
 	} else if(sel instanceof Folder) {
 		// We selected a folder, so go deeper
 		currentFolder = sel;
@@ -108,10 +110,12 @@ function buildElementUI() {
 	backbutton.hide();
 	backbutton.onClick = goBack;
 
-	elList = win.add("listbox", [0, 0, 300, 200]);
+	elList = win.add("listbox", [0, 0, 350, 350]);
 	elList.onClick = clickList;
 	var font = elList.graphics.font;
 	elList.graphics.font = ScriptUI.newFont(font.name, font.style, 16);
+
+	donotclose = win.add("checkbox", undefined, "&Don't close window after insert");
 
 	holoChanged();
 	win.show();
@@ -217,9 +221,12 @@ if(!documents.length) {
 } else if(parseInt(version, 10) < 10) {
 	alert('This script requires at least Photoshop CS3.', 'Wrong Photoshop Version', true);
 } else {
+	var defaultRulerUnits = app.preferences.rulerUnits;
+	app.preferences.rulerUnits = Units.PIXELS;
 	try {
 		app.activeDocument.suspendHistory('Insert Android element', 'buildElementUI();');
 	} catch(e) {
 		alert(e, 'Android Elements Error', true);
 	}
+	app.preferences.rulerUnits = defaultRulerUnits;
 }

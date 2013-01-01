@@ -18,6 +18,7 @@ app.bringToFront();
 var holoLight;
 var holoDark;
 
+var donotclose;
 var win;
 var search;
 
@@ -37,7 +38,8 @@ var holoChanged = function(ev) {
 
 function clickList(ev) {
 	placeFile(iconList.selection.file_object);
-	win.close();
+	if(!donotclose.value)
+		win.close();
 }
 
 /**
@@ -72,8 +74,10 @@ function buildIconUI() {
 	holoLight.onClick = holoChanged;
 	holoDark.onClick = holoChanged;
 
-	iconList = win.add("listbox", [0, 0, 300, 200]);
+	iconList = win.add("listbox", [0, 0, 350, 400]);
 	iconList.onClick = clickList;
+
+	donotclose = win.add("checkbox", undefined, "&Don't close window after insert");
 
 	holoChanged();
 	win.show();
@@ -130,9 +134,12 @@ if(!documents.length) {
 } else if(parseInt(version, 10) < 10) {
 	alert('This script requires at least Photoshop CS3.', 'Wrong Photoshop Version', true);
 } else {
+	var defaultRulerUnits = app.preferences.rulerUnits;
+	app.preferences.rulerUnits = Units.PIXELS;
 	try {
 		app.activeDocument.suspendHistory('Insert Android icon', 'buildIconUI();');
 	} catch(e) {
 		alert(e, 'Android Icons Error', true);
 	}
+	app.preferences.rulerUnits = defaultRulerUnits;
 }

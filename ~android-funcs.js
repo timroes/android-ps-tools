@@ -43,7 +43,7 @@ function importFile(file) {
 
 	var f = open(file);
 	
-	f.activeLayer.duplicate(curDoc, ElementPlacement.PLACEATBEGINNING);
+	f.layers[0].duplicate(curDoc, ElementPlacement.PLACEATBEGINNING);
 	f.close(SaveOptions.DONOTSAVECHANGES);
 
 	app.activeDocument = curDoc;

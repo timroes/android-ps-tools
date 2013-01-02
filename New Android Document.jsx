@@ -87,7 +87,7 @@ function createDevice(tempFilename) {
 
 	// Move file to center
 	var layer = app.activeDocument.activeLayer;
-	layer.translate(-1, -1);
+	layer.translate(-layer.bounds[0], -layer.bounds[1]);
 	// Lock layer
 	layer.allLocked = true;
 
@@ -183,9 +183,12 @@ function buildUI() {
 if(parseInt(version, 10) < 10) {
 	alert('This script requires at least Photoshop CS3.', 'Wrong Photoshop Version', true);
 } else {
+	var defaultRulerUnits = app.preferences.rulerUnits;
+	app.preferences.rulerUnits = Units.PIXELS;
 	try {
 		buildUI();
 	} catch(e) {
 		alert(e, 'Android Document Error', true);
 	}
+	app.preferences.rulerUnits = defaultRulerUnits;
 }

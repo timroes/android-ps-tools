@@ -69,6 +69,8 @@ mail address (mail@timroes.de) or most of the time in the #android-dev channel o
 Android Icons
 -------------
 
+![Screenshot of Android Icons](http://dl.dropbox.com/u/56970236/pstools/icons.png)
+
 This tool allow easy access to the Android Action Bar Icons.
 
 You can search for icon names and chose a Holo theme (either by selecting
@@ -87,6 +89,8 @@ Installation above for the location of the `AndroidTools` folder).
 Android Elements
 ----------------
 
+![Screenshot of Android Elements](http://dl.dropbox.com/u/56970236/pstools/elements.png)
+
 This tool allow easier access to different Android elements.
 
 You works nearly the same, as the Android Icons tool does. Some elements might have
@@ -102,6 +106,8 @@ use an arbitrary deep folder structure for different states, orientation and suc
 
 New Android document
 --------------------
+
+![Screenshot of New Android document](http://dl.dropbox.com/u/56970236/pstools/newdevice.png)
 
 This tool allow easy creation of a new document, containing a device frame, navigation and statusbar.
 

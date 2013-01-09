@@ -96,12 +96,15 @@ This tool allow easier access to different Android elements.
 You works nearly the same, as the Android Icons tool does. Some elements might have
 different states, orientation or similiar (indicated by an arrow behind the name). 
 If you click on these (or press Enter, for the first item in the list), you will be shown
-all variations of this element. Select one and it gets inserted into your current document.
+all variations of this element. Select one to see its preview and double click it to insert it 
+into your current document.
 
 You can use this tool also for additional elements. Just place them into `AndroidTools/Elements/holo_dark`,
 `AndroidTools/Elements/holo_light` or `AndroidTools/Elements/holo` (for elements, that are the same in Dark
 and Light theme). You can either place a file (any format Photoshop can open) directly into that folder, or
-use an arbitrary deep folder structure for different states, orientation and such.
+use an arbitrary deep folder structure for different states, orientation and such. If you want a preview
+image for these elements, place a png image into the `AndroidTools/Elements.thumb/` folder under the same sub
+folder and with the same name (except the file extension).
 
 
 New Android document

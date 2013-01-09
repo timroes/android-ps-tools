@@ -1,10 +1,13 @@
 var DIR = "AndroidTools";
 var ICON_DIR = "Icons";
 var EL_DIR = "Elements";
+var EL_THUMB_DIR = "Elements.thumb";
 var TEMP_DIR = "Templates";
 var HOLO_LIGHT = "holo_light";
 var HOLO_DARK = "holo_dark";
 var HOLO = "holo";
+var PREF_KEY_HOLO = 'de.timroes.holo';
+var PREF_KEY_CLOSE = 'de.timroes.close';
 
 function stripExt(filename) {
 	return filename.substr(0, filename.lastIndexOf('.')) || filename;
@@ -50,3 +53,33 @@ function importFile(file) {
 
 }
 
+
+function saveHoloPref(holo) {
+	var pref = new ActionDescriptor();
+	pref.putBoolean(42, holo == HOLO_DARK);
+	app.putCustomOptions(PREF_KEY_HOLO, pref);
+}
+
+function getHoloPref() {
+	try {
+		var pref = app.getCustomOptions(PREF_KEY_HOLO);
+		return pref.getBoolean(42) ? HOLO_DARK : HOLO_LIGHT;
+	} catch(e) {
+		return "";
+	}
+}
+
+function saveClosePref(close) {
+	var pref = new ActionDescriptor();
+	pref.putBoolean(42, close);
+	app.putCustomOptions(PREF_KEY_CLOSE, pref);
+}
+
+function getClosePref() {
+	try {
+		var pref = app.getCustomOptions(PREF_KEY_CLOSE);
+		return pref.getBoolean(42);
+	} catch(e) {
+		return false;
+	}
+}

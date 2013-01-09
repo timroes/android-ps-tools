@@ -29,6 +29,7 @@ var allIcons;
  * Change color of the list and reload icons, when holo theme changes.
  */
 var holoChanged = function(ev) {
+	saveHoloPref(getHolo());
 	var bgColor = (holoDark.value == true) ? [0.13, 0.13, 0.13] : [0.95, 0.95, 0.95];
 	var color = (holoDark.value == true) ? [1, 1, 1] : [0, 0, 0];
 	iconList.graphics.backgroundColor = iconList.graphics.newBrush(iconList.graphics.BrushType.SOLID_COLOR, bgColor);
@@ -70,7 +71,10 @@ function buildIconUI() {
 	holoGroup.orientation = "row";
 	holoLight = holoGroup.add("radiobutton", undefined, "Holo &Light");
 	holoDark = holoGroup.add("radiobutton", undefined, "Holo &Dark");
-	holoLight.value = true;
+	if(getHoloPref() == HOLO_DARK)
+		holoDark.value = true;
+	else
+		holoLight.value = true;
 	holoLight.onClick = holoChanged;
 	holoDark.onClick = holoChanged;
 
@@ -78,6 +82,10 @@ function buildIconUI() {
 	iconList.onClick = clickList;
 
 	donotclose = win.add("checkbox", undefined, "&Don't close window after insert");
+	donotclose.value = getClosePref();
+	donotclose.onClick = function() {
+		saveClosePref(donotclose.value);
+	}
 
 	holoChanged();
 	win.show();
